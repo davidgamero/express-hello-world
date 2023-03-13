@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javascript-test
+  labels:
+    app: javascript-test
+  namespace: express-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javascript-test
+  template:
+    metadata:
+      labels:
+        app: javascript-test
+    spec:
+      containers:
+        - name: javascript-test
+          image: acrworkflow1678735156408.azurecr.io/image-workflow-1678735156408:latest
+          ports:
+            - containerPort: 1313
